@@ -15,7 +15,6 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
@@ -90,12 +89,16 @@ AUTH_USER_MODEL = 'bidzOn.CustomUser'
 
 AUTHENTICATION_BACKENDS = [
     'bidzOn.authentication.PhoneBackend',
+    'bidzOn.authentication.CustomDriverBackend',
     'django.contrib.auth.backends.ModelBackend',
 ]
 
-VONAGE_API_KEY = '8ce3dce1'
-VONAGE_API_SECRET = 'NokJzi52QflU5Xs7'
-VONAGE_BRAND_NAME = 'BidzOn'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'Falcondigitalserv@gmail.com'
+EMAIL_HOST_PASSWORD = 'esgabmwpatjnhmbb'
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
